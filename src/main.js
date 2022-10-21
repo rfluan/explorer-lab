@@ -4,10 +4,11 @@ import IMask from "imask"
 const ccBgColor01 = document.querySelector(".cc-bg svg > g g:nth-child(1) path")
 const ccBgColor02 = document.querySelector(".cc-bg svg > g g:nth-child(2) path")
 const ccLogo = document.querySelector(".cc-logo span:nth-child(2) img")
+const ccBg = document.querySelector(".cc .cc-bg svg")
 
 function setCardType(type) {
   const colors = {
-    visa: ["#436d99", "#2d57f2"],
+    visa: ["red", "green"],
     mastercard: ["#df67f29", "#c69347"],
     default: ["black", "gray"],
   }
