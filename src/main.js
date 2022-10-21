@@ -32,15 +32,15 @@ const expirationDatePattern = {
     MM: {
       mask: IMask.MaskedRange,
       from: 1,
-      to: 12
+      to: 12,
     },
 
     YY: {
       mask: IMask.MaskedRange,
       from: String(new Date().getFullYear()).slice(2),
       to: String(new Date().getFullYear() + 10).slice(2),
-    }
-  }
+    },
+  },
 }
 const expirationDateMarked = IMask(expirationDate, expirationDatePattern)
 
@@ -67,8 +67,50 @@ const cardNumberPattern = {
     const foundMask = dynamicMasked.compiledMasks.find(function (item) {
       return number.match(item.regex)
     })
-  
+
     return foundMask
   },
 }
 const cardNumberMasked = IMask(cardNumber, cardNumberPattern)
+
+const addButton = document.querySelector("#add-card")
+addButton.addEventListener("click", () => {
+  alert("Cartão Adicionado!")
+})
+
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault()
+})
+
+cardNumberMasked.on("accept", () => {
+  const cardType = cardNumberMasked.masked.currentMask.cardtype
+  setCardType(cardType)
+  updateCardNumber(cardNumberMasked.value)
+})
+function updateCardNumber(number) {
+  const ccNumber = document.querySelector(".cc-number")
+  ccNumber.innerText = number.length === 0 ? "1234 5678 9012 3456" : number
+}
+
+const cardHolder = document.querySelector("#card-holder")
+cardHolder.addEventListener("input", () => {
+  const ccHolder = document.querySelector(".cc-holder .value")
+  ccHolder.innerText =
+    cardHolder.value.length === 0 ? "FULANO DA SILVA" : cardHolder.value
+})
+
+expirationDateMarked.on("accept", () => {
+  updateExpirationDate(expirationDateMarked.value)
+})
+function updateExpirationDate(code) {
+  const ccExpiration = document.querySelector(".cc-extra .cc-expiration .value")
+  ccExpiration.innerText = code.length === 0 ? "02/24" : code
+}
+
+securityCodeMasked.on("accept", () => {
+  updateSecurityCode(securityCodeMasked.value)
+})
+function updateSecurityCode(code) {
+  const ccSecurity = document.querySelector(".cc-security .value")
+  ccSecurity.innerText = code.length === 0 ? "123" : code
+}

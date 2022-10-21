@@ -45,4 +45,4 @@ Esse projeto está sob a licença MIT.
 
 ---
 
-Feito com ♥ by Luan Ferreira teste :wave: [Participe da nossa comunidade!](https://discord.gg/rocketseat)
+Feito com ♥ by Luan Ferreira :wave: [Participe da nossa comunidade!](https://discord.gg/rocketseat)
