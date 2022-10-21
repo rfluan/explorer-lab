@@ -1,6 +1,10 @@
 import "./css/index.css"
 import IMask from "imask"
 
+const ccBgVisaBlue = document.querySelector(".cc")
+ccBgVisaBlue = cc.style.backgroundImage = "url('cc-bg-blue-visa.svg')"
+
+console.log(ccBgVisaBlue)
 const ccBgColor01 = document.querySelector(".cc-bg svg > g g:nth-child(1) path")
 const ccBgColor02 = document.querySelector(".cc-bg svg > g g:nth-child(2) path")
 const ccLogo = document.querySelector(".cc-logo span:nth-child(2) img")
