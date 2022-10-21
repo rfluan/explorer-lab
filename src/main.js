@@ -95,15 +95,14 @@ function updateCardNumber(number) {
 const cardHolder = document.querySelector("#card-holder")
 cardHolder.addEventListener("input", () => {
   const ccHolder = document.querySelector(".cc-holder .value")
-  ccHolder.innerText =
-    cardHolder.value.length === 0 ? "FULANO DA SILVA" : cardHolder.value
+  ccHolder.innerText = cardHolder.value.length === 0 ? "FULANO DA SILVA" : cardHolder.value
 })
 
 expirationDateMarked.on("accept", () => {
   updateExpirationDate(expirationDateMarked.value)
 })
 function updateExpirationDate(code) {
-  const ccExpiration = document.querySelector(".cc-extra .cc-expiration .value")
+  const ccExpiration = document.querySelector(".cc-extra .value")
   ccExpiration.innerText = code.length === 0 ? "02/24" : code
 }
 
